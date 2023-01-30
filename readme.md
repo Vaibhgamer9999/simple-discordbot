@@ -1,1 +1,1 @@
-A Source code For A Simple Bot
+A Source code For A Simple Yet Advanced Bot
