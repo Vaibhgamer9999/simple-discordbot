@@ -1,0 +1,30 @@
+{
+  "name": "mainbotforyou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "dependencies": {
+    "@discordjs/builders": "^1.4.0",
+    "@discordjs/rest": "^1.5.0",
+    "axios": "^1.2.5",
+    "data-uri-to-buffer": "^4.0.0",
+    "discord-api-types": "^0.37.30",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "fetch-blob": "^3.1.5",
+    "formdata-polyfill": "^4.0.10",
+    "minecraft-server-util": "^5.3.2",
+    "minecraft-status": "^1.1.0",
+    "node-domexception": "^1.0.0",
+    "node-fetch": "^3.3.0",
+    "nodemon": "^2.0.20",
+    "web-streams-polyfill": "^3.2.1"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
