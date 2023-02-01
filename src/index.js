@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const functions = fs.readdirSync("./src/functions").filter(file => file.endsWith(".js"));
 const eventFiles = fs.readdirSync("./src/events").filter(file => file.endsWith(".js"));
-const commandFolders = fs.readdirSync("./src/commands");
+const commandFolders = fs.readdirSync("./src/commands");z
 const { GiveawaysManager } = require('discord-giveaways');
 const manager = new GiveawaysManager(client, {
     storage: './giveaways.json',
