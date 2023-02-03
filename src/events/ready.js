@@ -5,7 +5,7 @@ module.exports = {
   name: 'ready',
   once: true,
   async execute(client) {
-    if(!mongodbURL) return;
+    if(!mongodbURL) console.log(`No Mongodb Url Found`)
 
     mongoose.set('strictQuery', false);
 

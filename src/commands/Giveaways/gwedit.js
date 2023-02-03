@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require(`@discordjs/builders`);
 const ms = require('ms');
+const { mongoose } = require(`mongoose`)
 
 module.exports = {
     data:new SlashCommandBuilder()
@@ -27,11 +28,12 @@ module.exports = {
                     .setRequired(true)),
 
                     async execute(interaction, client) {
+                        if(!mongoose.connect) await interaction.reply(`no Mongodb Url Provided`)
                         const newprize = interaction.options.getString('prize');
                         const newduration = interaction.options.getString('time');
                         const newwinners = interaction.options.getInteger('winners');
                         const messageId = interaction.options.getString('message_id');
-                        client.giveawaysManager
+                        client.giveawayManager
             .edit(messageId, {
                 addTime: ms(newduration),
                 newWinnerCount: newwinners,

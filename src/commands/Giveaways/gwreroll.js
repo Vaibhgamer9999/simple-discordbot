@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require(`@discordjs/builders`);
 const ms = require('ms');
+const { mongoose } = require(`mongoose`)
 
 module.exports = {
     data:new SlashCommandBuilder()
@@ -12,12 +13,13 @@ module.exports = {
             .setRequired(true)),
             
                     async execute(interaction, client) {
+                        if(!mongoose.connect) await interaction.reply(`no Mongodb Url Provided`)
                         const query = interaction.options.getString('query');
 const giveaway =
     // Search with giveaway prize
-    client.giveawaysManager.giveaways.find((g) => g.guildId === interaction.guildId && g.prize === query) ||
+    client.giveawayManager.giveaways.find((g) => g.guildId === interaction.guildId && g.prize === query) ||
     // Search with messageId
-    client.giveawaysManager.giveaways.find((g) => g.guildId === interaction.guildId && g.messageId === query);
+    client.giveawayManager.giveaways.find((g) => g.guildId === interaction.guildId && g.messageId === query);
 
 // If no giveaway was found
 if (!giveaway) return interaction.reply(`Unable to find a giveaway for \`${query}\`.`);

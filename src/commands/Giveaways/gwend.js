@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require(`@discordjs/builders`);
 const ms = require('ms');
+const { mongoose } = require(`mongoose`)
 
 module.exports = {
     data:new SlashCommandBuilder()
@@ -12,9 +13,10 @@ module.exports = {
             .setRequired(true)),
 
                     async execute(interaction, client) {
+                        if(!mongoose.connect) await interaction.reply(`no Mongodb Url Provided`)
 
                         const messageId = interaction.options.getString('message_id');
-                        client.giveawaysManager
+                        client.giveawayManager
             .end(messageId)
             .then(() => {
                 interaction.reply('Success! Giveaway ended!');
